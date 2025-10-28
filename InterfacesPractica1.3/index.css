@@ -1,4 +1,4 @@
-body {
+        body {
             margin: 0;
             font-family: sans-serif;
         }
@@ -9,11 +9,13 @@ body {
                 "cabecera cabecera"
                 "sidebar main"
                 "footer footer";
-            grid-template-columns: 200px 1fr;
-            grid-template-rows: 80px 1fr 60px;
+            overflow: hidden;
+            grid-template-columns: .2fr 1fr;
+            grid-template-rows: .25fr 1fr .2fr;
             gap: 10px;
             margin: 5%;
-            min-height: 100vh;
+            max-height: fit-content;
+            
         }
 
         .cabecera {
@@ -117,16 +119,26 @@ body {
             line-height: 60px;
             background-color:pink;
             color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @media (max-width: 700px) {
+        .footer>p:first-of-type{
+            margin-left: 2em;
+        }
+
+        .footer>p:nth-of-type(2){
+            margin-right: 2em;
+        }
+
+        @media (max-width: 800px) {
             .contenedor {
                 grid-template-areas:
                     "cabecera"
-                    "main"
                     "sidebar"
+                    "main"
                     "footer";
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                grid-template-rows: 1fr;
             }
         }
