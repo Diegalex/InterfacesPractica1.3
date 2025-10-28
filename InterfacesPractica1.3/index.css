@@ -1,176 +1,246 @@
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .contenedor {
-            display: grid;
-            grid-template-areas:
-                "cabecera cabecera"
-                "sidebar main"
-                "footer footer";
-            grid-template-columns: .2fr 1fr;
-            grid-template-rows: auto 1fr auto;
-            gap: 10px;
-            margin: 5%;
-        }
+body {
+    width: 95%;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .cabecera {
-            grid-area: cabecera;
-            text-align: center;
-            background-color: pink;
-            color: black;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 1em 0px;
-        }
+/*Contenedor grid con todos los elementos semanticos del HTML*/
+.contenedor {
+    display: grid;
+    grid-template-areas:
+        "cabecera cabecera"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: .2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
 
-        .main button {
-            width: 150px;
-            margin: 10px auto;
-            padding: 10px;
-            background-color: purple;
-            border: none;
-            color: whitesmoke;
-            cursor: pointer;
-            border-radius: 5px;
-            /*transicion en el resto de botones*/
-            transition: transform .15s ease-in, background-color .25s ease;
-        }
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 100%;
+}
 
-        button:hover{
-            transform: scale(108%);
-            background-color: #660266;
-        }
+.cabecera {
+    grid-area: cabecera;
+    text-align: center;
+    background-color: rgba(255, 154, 171, 0.98);
+    /*border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;*/
+    border-radius: 20px 20px 0px 0px;
+    color: black;
+    position: sticky; /*Con el contenido actual solo aplica en media queries*/
+    top: 0;
+    z-index: 100;
+    padding: 1em 0px;
+}
 
-        .sidebar {
-            grid-area: sidebar;
-            padding: 20px;
-            background-color: pink;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+.sidebar {
+    grid-area: sidebar;
+    padding: 20px;
+    background-color: pink;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 20px;
+}
 
-        .sidebar button {
-            width: 100%;
-            margin: 5px 0px;
-            padding: 10px;
-            background-color: whitesmoke;
-            border: none;
-            color: black;
-            cursor: pointer;
-            border-radius: 5px;
+.sidebar button {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
 
-            /*Se añade transicion para mayor responsividad*/
-            transition: transform .15s ease-in;
-        }
+    /*Se añade transicion para mayor responsividad*/
+    transition: transform .15s ease-in;
+}
 
-        .sidebar button:hover {
-            transform: scale(105%);
-        }
+.sidebar button:hover {
+    /*aplica la transicion en hover*/
+    transform: scale(105%);
+}
 
-        .foto {
-            width: 100%;
-            height: auto;
-            border-radius: 10px; 
-        }
+.foto {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
 
-        /*Main que hara uso de un subgrid para cumplir el layout del prototipo*/
-        .main {
-            grid-area: main;
-            background-color: #f6f6f6;
-            border-radius: 20px;
-            padding: 20px;
+/*Main que hara uso de un subgrid para cumplir el layout del prototipo*/
+.main {
+    max-width: 100%;
+    overflow-x: hidden;
+    grid-area: main;
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
 
-            display: grid;
-            grid-template-areas: "gira"
-            "artista";
-            gap: 10px;
-            row-gap: 25px;
-        }
+    display: grid;
+    grid-template-areas: "gira"
+        "artista";
+    gap: 10px;
+    row-gap: 25px;
+}
 
-        /*A su vez tienen subgrids*/
+h2{
+    margin-bottom: 1.5rem;
+}
 
-        .gira{
-            grid-area: gira;
-            display: grid;
-            grid-template-areas: "texto texto foto foto foto";
-            gap: 2em;
-        }
+.main button {
+    display: block; /*necesario que sea bloque y ocupe todo el ancho para poder centrarlo horizontalmente*/
+    width: 150px;
+    margin: 2em auto ;
+    padding: 10px;
+    background-color: rgb(167, 18, 167);
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    border-radius: 5px;
+    /*transicion en el resto de botones*/
+    transition: transform .15s ease-in, background-color .25s ease;
+}
 
-        .artista{
-            grid: artista;
-            display: grid;
-            grid-template-areas: "foto2 foto2 foto2 texto2 texto2";
-            gap: 2em;
-        }
+.main button:hover {
+    /*aplica las transiciones en hover*/
+    transform: scale(108%);
+    background-color: #660266;
+}
 
-        .gira-texto{
-            grid-area: texto;
-            text-align: justify;
-        }
+.gira, .artista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .gira-imagen{
-            grid-area: foto;
-            align-self: center;
-        }
+.gira-texto, .artista-texto {
+    flex: 1 1 40%;
+    text-align: justify;
+}
 
-        .artista-texto{
-            grid-area: texto2;
-            text-align: justify;
-        }
+.gira-imagen, .artista-imagen {
+    flex: 1 1 55%; /*grow, shrink, basis*/
+    max-width: 100%;
+    align-self: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-        .artista-imagen{
-            grid-area: foto2;
-            align-self: center;
-        }
+.footer {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    /*para alinear los textos del pie*/
+    justify-content: space-between;
+    align-items: center;
+    background-color: pink;
+    position: relative;
+    padding: 1em 2em;
+    /*lados altos*/
+    border-radius: 0px 0px 20px 20px;
+}
 
+.footer a {
+    color: black;
+    text-decoration: underline;
+    transition: color 0.15s ease;
+    /*propiedad tiempo animacion*/
+}
 
-        .footer {
-            grid-area: footer;
-            display: flex; /*para alinear los textos de los pies*/
-            justify-content: space-between;
-            align-items: center;
-            background-color: pink;
-            position: relative;
-            padding: 1em 2em; /*lados altos*/
-            border-radius: 20px;
-        }
+.footer a:hover {
+    color: purple;
+}
 
-        .footer a {
-            color: black;
-            text-decoration: underline;
-            transition: color 0.15s ease; /*propiedad tiempo animacion*/
-        }
+.footer>p:first-of-type {
+    margin-left: 2em;
+}
 
-        .footer a:hover {
-            color: purple;
-        }
+.footer>p:nth-of-type(2) {
+    margin-right: 2em;
+}
 
-        .footer>p:first-of-type{
-            margin-left: 2em;
-        }
+/*Se borran la mayoria de gaps,margenes, etc en pantallas pequeñas*/
+@media (max-width: 800px) {
 
-        .footer>p:nth-of-type(2){
-            margin-right: 2em;
-        }
+    .cabecera{
+        border-radius: 0px;
+    }
 
-        @media (max-width: 800px) {
-            .contenedor {
-                grid-template-areas:
-                    "cabecera"
-                    "sidebar"
-                    "main"
-                    "footer";
-                grid-template-rows: auto;
-                grid-template-columns: 1fr;
-            }
+    .contenedor {
+        grid-template-areas:
+            "cabecera"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        max-width: 800px;
+        margin: 0 auto;
+        gap: 10px;
+    }
 
-            .cabecera{
-                position: sticky;
-                top: 0;
-            }
-        }
+    .cabecera {
+        position: sticky;
+        top: 0;
+    }
+
+    /*Deshace space between y hace que los items del grid ocupen 
+    todo el ancho disponible*/
+    .gira, .artista {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 1em;
+    }
+
+    /*Se fuerza a que ocupe todo el ancho de su mismo contenedor*/
+    .gira-texto, .artista-texto,
+    .gira-imagen, .artista-imagen {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /*render imagenes como bloques*/
+    .foto{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+}
+
+/*Eliminar gaps*/
+@media (max-width: 500px) {
+    .contenedor {
+        gap: 0;
+    }
+
+    .main {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .gira, .artista {
+        gap: 0;
+    }
+
+}
