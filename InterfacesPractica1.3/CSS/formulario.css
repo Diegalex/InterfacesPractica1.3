@@ -1,0 +1,54 @@
+body{
+    height: 95vh; /*Centrar*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset{
+    border: 1px solid pink;
+    border-radius: 15px;
+    padding: 1.1em;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 2em;
+}
+
+label, input{
+}
+
+label{
+}
+
+#flex-botones{
+
+}
+
+button{
+    justify-self: center;
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: pink;
+    border-radius: 5px;
+}
+
+button>a{
+    text-decoration: none;
+    color: white;
+}
+
+button{
+    transition: transform, background-color .30s ease-in;
+}
+
+button:hover{
+    transform: scale(107%);
+    background-color: blueviolet;
+}
+

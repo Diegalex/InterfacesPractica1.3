@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="CSS/formulario.css">
+</head>
+
+<body>
+    <fieldset>
+        <legend> Introduce tus datos: </legend>
+        <form action="index.html">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" name="email" required>
+            <label for="ciudad">Ciudad y fecha:</label>
+            <select name="ciudad" required>
+                <option value="ber">Berlin 12 de Septiembre</option>
+                <option value="bar" selected>Barcelona 15 de Septiembre</option>
+                <option value="lon">Londres 22 de Septiembre</option>
+                <option value="mun">Munich 30 de Septiembre</option>
+                <option value="mad">Madrid 8 de Octubre</option>
+                <option value="par">Paris 2 de Octubre</option>
+            </select>
+            <button type="submit">Pagar</button>
+            <button>
+                <a href="index.html">Cancelar la compra</a>
+            </button>
+        </form>
+    </fieldset>
+</body>
+
+</html>
